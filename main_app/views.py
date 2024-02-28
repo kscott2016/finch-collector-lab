@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Add the following import
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
 class Game:  # Note that parens are optional if not inheriting from another class
   def __init__(self, name, description, release_year):
@@ -16,8 +16,10 @@ games = [
 ]
 
 # Define the home view
+# def home(request):
+#   return HttpResponse('<h1>Hello Gamer</h1>')
 def home(request):
-  return HttpResponse('<h1>Hello Gamer</h1>')
+  return render(request, 'home.html')
 
 # def about(request):
 #   return HttpResponse('<h1>About Gamer</h1>')
