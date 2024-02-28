@@ -10,7 +10,7 @@
     type="image/png"
     href=""
   >
-  <title>Cat Collector</title>
+  <title>Game Collector</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
   {% endblock %}
@@ -20,14 +20,18 @@
     <div class="header-logo-container">
       <a href="/">
         <img 
-          src="{% static 'images/gamer-logo.png' %}"
-          alt="The Cat Collector Logo"
+          src="{% static 'images/video-game-logo2.png' %}"
+          alt="The Game Collector Logo"
         >
       </a>
     </div>
     <nav>
       <ul>
+        <!-- new markup below -->
+        <li><a href="/games">All Games</a></li>
+        <!-- existing markup -->
         <li><a href="/about">About</a></li>
+        {% comment %} <li><a href="/about">About</a></li> {% endcomment %}
       </ul>
     </nav>
   </header>

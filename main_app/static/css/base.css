@@ -48,8 +48,8 @@ body {
 
 header {
   width: 100%;
-  background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
-  border-bottom: var(--borders);
+  /*background: var(--nav-bg-ff);  rgba(104, 197, 248, .9) */
+  /* border-bottom: var(--borders); */
 }
 
 nav {
@@ -95,8 +95,12 @@ nav li {
 
 .header-logo-container {
   margin: auto;
-  padding: 10px 20px 0;
-  max-width: 500px;
+  /* padding: 10px 20px 0; */
+  max-width: 200px;
+  a>img{
+    height:100%;
+    width: auto;
+  }
 }
 
 .page-header {
@@ -178,7 +182,7 @@ nav li {
   nav,
   .header-logo-container {
     margin: 10px 0;
-    padding: 0 15px;
+    /* padding: 0 15px; */
   }
 
   /* visual fix to help align logo */
@@ -239,9 +243,9 @@ nav li {
   nav,
   .header-logo-container {
     margin: 0;
-    background: var(--nav-bg-ff);
-    border: var(--borders);
-    border-radius: 18px;
+    /* background: var(--nav-bg-ff); */
+    /* border: var(--borders);
+    border-radius: 18px; */
   }
 
   nav {
@@ -251,8 +255,8 @@ nav li {
   .header-logo-container {
     /* visual fix to help align logo */
     padding-top: 6px;
-    width: 256px;
-    height: 35px;
+    width: 150px;
+    height: 150px;
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -263,9 +267,9 @@ nav li {
 
     nav,
     .header-logo-container {
-      background: rgba(104, 197, 248, .6);
+      /* background: rgba(104, 197, 248, .6);
       -webkit-backdrop-filter: blur(3px);
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px); */
     }
   }
 }

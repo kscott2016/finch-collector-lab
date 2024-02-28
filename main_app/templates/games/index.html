@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/games/game-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+
+<section class="card-container">
+  {% for game in games %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/game-icon.png' %}" 
+            alt="game icon"
+          >
+        </div>
+        <h2 class="card-title">{{ game.name }}</h2>
+        <p><small>{{ game.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
