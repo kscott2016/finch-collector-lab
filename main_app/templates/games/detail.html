@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/games/game-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="cat-container">
+  <div class="cat-img">
+    <img 
+      src="{% static 'images/game-icon.png' %}" 
+      alt="A game controller"
+    >
+  </div>
+  <div class="cat-details">
+    <h1>{{ game.name }}</h1>
+    <p>Release year: {{game.release_year}}
+    <p>{{ game.description }}</p>
+  </div>
+</section>
+
+{% endblock %}

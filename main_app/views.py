@@ -31,3 +31,7 @@ def about(request):
 def game_index(request):
   games=Game.objects.all()
   return render(request, 'games/index.html', { 'games': games })
+
+def game_detail(request, game_id):
+  game = Game.objects.get(id=game_id)
+  return render(request, 'games/detail.html', { 'game': game })
