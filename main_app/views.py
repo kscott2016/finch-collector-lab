@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # Add the following import
 # from django.http import HttpResponse
+from django.views.generic.edit import CreateView
 from .models import Game
 
 # class Game:  # Note that parens are optional if not inheriting from another class
@@ -35,3 +36,7 @@ def game_index(request):
 def game_detail(request, game_id):
   game = Game.objects.get(id=game_id)
   return render(request, 'games/detail.html', { 'game': game })
+
+class GameCreate(CreateView):
+  model = Game
+  fields = '__all__'
