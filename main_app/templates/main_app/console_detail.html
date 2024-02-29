@@ -11,14 +11,13 @@
 
 {% block content %}
   
-<div class="card" style="border-color: {{ toy.color }}">
-  <div class="card-bg" style="background-color: {{ toy.color }}"></div>
+<div class="card">
   <div class="card-content">
-    <h2>{{ toy.name }}</h2>
-    <p>A {{ toy.color }} toy</p>
+    <h2>{{ console.name }}</h2>
+    <p>A {{ console.company }} product</p>
   </div>
 </div>
-<a href="{% url 'toy-update' toy.id %}" class="btn warn">Edit</a>
-<a href="{% url 'toy-delete' toy.id %}" class="btn danger">Delete</a>
+<a href="{% url 'console-update' console.id %}" class="btn warn">Edit</a>
+<a href="{% url 'console-delete' console.id %}" class="btn danger">Delete</a>
 
 {% endblock %}
