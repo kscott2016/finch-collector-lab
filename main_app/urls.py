@@ -9,4 +9,5 @@ urlpatterns = [
   path('games/create/', views.GameCreate.as_view(), name='game-create'),
   path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='game-update'),
   path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='game-delete'),
+  path('games/<int:game_id>/add-type/', views.add_type, name='add-type'),
 ]

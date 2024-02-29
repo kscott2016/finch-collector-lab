@@ -28,5 +28,43 @@
     </div>
   </div>
 </section>
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Types</h2>
+    </div>
+    <h3>Add a Type</h3>
+    <form
+      action="{% url 'add-type' game.id %}" 
+      method="post" 
+      class="subsection-content"
+			autocomplete="off"
+    >
+      {% csrf_token %}
+      {{ type_form.as_p }}
+      <button type="submit" class="btn submit">Add Type</button>
+    </form>
+    <h3>Other Types</h3>
+    {% if game.type_set.all.count %}
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Max number of players</th></tr>
+      </thead>
+      <tbody>
+        {% for type in game.type_set.all %}
+          <tr>
+            <td>{{type.get_type_display}}</td>
+            <td>{{type.max_players}} players</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <div class="subsection-content">
+        <p>{{game.name}} seems boring</p>
+      </div>
+    {% endif %}
+  </section>
+</div>
 
 {% endblock %}

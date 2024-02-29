@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.urls import reverse
 
 TYPES = (
@@ -10,6 +7,7 @@ TYPES = (
   ('R', 'RPG'),
   ('B', 'Fighting'),
   ('S', 'Shooter'),
+  ('O', 'Other'),
 )
 
 class Game(models.Model):
@@ -30,10 +28,10 @@ class Type(models.Model):
     choices=TYPES,
     # set the default value for meal to be 'B'
     default=TYPES[0][0])
-  max_players=models.IntegerField()
+  max_players=models.IntegerField('Max number of players')
 
   game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
   def __str__(self):
     
-    return f"{self.get_types_display()}. Allows {self.max_players} to play"
+    return f"{self.get_type_display()}"
