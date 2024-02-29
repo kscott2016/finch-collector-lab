@@ -21,6 +21,15 @@ class Game(models.Model):
   def get_absolute_url(self):
     return reverse('cat-detail', kwargs={'cat_id': self.id})
   
+  def is_interesting_game(self):
+    
+    if self.type_set.count()==0 or self.type_set.count()<3:
+      return False
+    elif self.type_set.count()>=3:
+      return True
+
+    # return self.type_set.filter(self.type).count() >= 3
+  
 class Type(models.Model):
   type = models.CharField(
     max_length=1,

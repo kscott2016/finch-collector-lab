@@ -41,6 +41,11 @@
 			autocomplete="off"
     >
       {% csrf_token %}
+      {% if game.is_interesting_game %}
+        <p class="fed">{{game.name}} has a lot of playing types</p>
+      {% else %}
+      <p class="unfed">{{game.name}} might not sell at all!</p>
+      {% endif %}
       {{ type_form.as_p }}
       <button type="submit" class="btn submit">Add Type</button>
     </form>
