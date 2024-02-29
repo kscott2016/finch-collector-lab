@@ -44,3 +44,14 @@ class Type(models.Model):
   def __str__(self):
     
     return f"{self.get_type_display()}"
+  
+
+class Console(models.Model):
+  name = models.CharField(max_length=50)
+  company = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('console-detail', kwargs={'pk': self.id})
