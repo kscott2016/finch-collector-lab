@@ -10,10 +10,21 @@ TYPES = (
   ('O', 'Other'),
 )
 
+class Console(models.Model):
+  name = models.CharField(max_length=50)
+  company = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('console-detail', kwargs={'pk': self.id})
+
 class Game(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
   release_year = models.IntegerField()
+  consoles = models.ManyToManyField(Console)
   
   def __str__(self):
     return self.name
@@ -44,14 +55,3 @@ class Type(models.Model):
   def __str__(self):
     
     return f"{self.get_type_display()}"
-  
-
-class Console(models.Model):
-  name = models.CharField(max_length=50)
-  company = models.CharField(max_length=20)
-
-  def __str__(self):
-    return self.name
-
-  def get_absolute_url(self):
-    return reverse('console-detail', kwargs={'pk': self.id})

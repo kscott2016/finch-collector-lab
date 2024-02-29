@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 # Add the following import
 # from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Game
+from django.views.generic import ListView, DetailView
+from .models import Game, Console
 from .forms import TypeForm
 
 # class Game:  # Note that parens are optional if not inheriting from another class
@@ -65,3 +66,22 @@ class GameUpdate(UpdateView):
 class GameDelete(DeleteView):
   model = Game
   success_url = '/games/'
+
+class ConsoleCreate(CreateView):
+  model = Console
+  fields = '__all__'
+  success_url = '/consoles/'
+
+class ConsoleList(ListView):
+  model = Console
+
+class ConsoleDetail(DetailView):
+  model = Console 
+
+class ConsoleUpdate(UpdateView):
+  model = Console
+  fields = '__all__'
+
+class ConsoleDelete(DeleteView):
+  model = Console
+  success_url = '/consoles/'
