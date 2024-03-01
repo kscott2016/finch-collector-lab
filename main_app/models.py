@@ -32,7 +32,7 @@ class Game(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse('cat-detail', kwargs={'cat_id': self.id})
+    return reverse('game-detail', kwargs={'game_id': self.id})
   
   def is_interesting_game(self):
     

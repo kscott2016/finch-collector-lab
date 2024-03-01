@@ -13,6 +13,9 @@
 
 
 <section class="card-container">
+  {%if not games.count %}
+  <h2>You have no games!</h2>
+  {% else %}
   {% for game in games %}
     <a href="{% url 'game-detail' game.id %}">
       <div class="card">
@@ -29,6 +32,7 @@
       </div>
     </a>
   {% endfor %}
+  {% endif %}
 </section>
 
 {% endblock %}

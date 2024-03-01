@@ -17,4 +17,6 @@ urlpatterns = [
   path('consoles/<int:pk>/update/', views.ConsoleUpdate.as_view(), name='console-update'),
   path('consoles/<int:pk>/delete/', views.ConsoleDelete.as_view(), name='console-delete'),
   path('games/<int:game_id>/console_list/<int:console_id>/', views.console_list, name='console-list'),
+
+  path('accounts/signup/', views.signup, name='signup'),
 ]
