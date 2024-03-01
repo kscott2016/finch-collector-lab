@@ -38,10 +38,15 @@ def game_index(request):
 def game_detail(request, game_id):
   game = Game.objects.get(id=game_id)
   # return render(request, 'games/detail.html', { 'game': game })
+  no_consoles = Console.objects.exclude(id__in = game.consoles.all().values_list('id'))
   type_form = TypeForm()
   return render(request, 'games/detail.html', {
-    'game': game, 'type_form': type_form
+    'game': game, 'type_form': type_form, 'consoles': no_consoles
   })
+
+def console_list(request, game_id, console_id):
+  Game.objects.get(id=game_id).consoles.add(console_id)
+  return redirect('game-detail', game_id=game_id)
 
 def add_type(request, game_id):
   # create a ModelForm instance using the data in request.POST
@@ -56,7 +61,8 @@ def add_type(request, game_id):
 
 class GameCreate(CreateView):
   model = Game
-  fields = '__all__'
+  # fields = '__all__'
+  fields = ['name', 'description', 'release_year']
   success_url = '/games/'
 
 class GameUpdate(UpdateView):
