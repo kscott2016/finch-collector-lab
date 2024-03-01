@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 TYPES = (
   ('A', 'Adventure'),
@@ -25,6 +26,7 @@ class Game(models.Model):
   description = models.TextField(max_length=250)
   release_year = models.IntegerField()
   consoles = models.ManyToManyField(Console)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   
   def __str__(self):
     return self.name

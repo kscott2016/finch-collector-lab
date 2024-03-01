@@ -7,6 +7,8 @@ from django.views.generic import ListView, DetailView
 from .models import Game, Console
 from .forms import TypeForm
 
+from django.contrib.auth.views import LoginView
+
 # class Game:  # Note that parens are optional if not inheriting from another class
 #   def __init__(self, name, description, release_year):
 #     self.name = name
@@ -22,8 +24,11 @@ from .forms import TypeForm
 # Define the home view
 # def home(request):
 #   return HttpResponse('<h1>Hello Gamer</h1>')
-def home(request):
-  return render(request, 'home.html')
+
+# def home(request):
+#   return render(request, 'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
 
 # def about(request):
 #   return HttpResponse('<h1>About Gamer</h1>')

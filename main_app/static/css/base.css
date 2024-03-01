@@ -166,6 +166,10 @@ nav li {
   font-size: var(--font-reg);
 }
 
+form{
+  background-color: white;
+}
+
 @media only screen and (min-width: 768px) {
   header {
     position: sticky;
