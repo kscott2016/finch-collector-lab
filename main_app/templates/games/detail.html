@@ -11,25 +11,25 @@
 
 {% block content %}
 
-<section class="cat-container">
-  <div class="cat-img">
+<section class="game-container">
+  <div class="game-img">
     <img 
       src="{% static 'images/game-icon.png' %}" 
       alt="A game controller"
     >
   </div>
-  <div class="cat-details">
+  <div class="game-details">
     <h1>{{ game.name }}</h1>
     <p>Release year: {{game.release_year}}
     <p>{{ game.description }}</p>
-    <div class="cat-actions">
+    <div class="game-actions">
       <a href="{% url 'game-update' game.id %}" class="btn warn">Edit</a>
       <a href="{% url 'game-delete' game.id %}" class="btn danger">Delete</a>
     </div>
   </div>
 </section>
-<div class="feedings-toy-container">
-  <section class="feedings">
+<div class="types-console-container">
+  <section class="types">
     <div class="subsection-title">
       <h2>Types</h2>
     </div>
@@ -70,29 +70,29 @@
       </div>
     {% endif %}
   </section>
-  <section class="toys">
+  <section class="consoles">
     <div class="subsection-title">
       <h2>{{game.name}} is available on these consoles:</h2>
     </div>
     <div class="subsection-content">
       {% if game.consoles.count %}
         {% for console in game.consoles.all %}
-          <div class="toy-container">
+          <div class="console-container">
             <a href="{% url 'console-detail' console.id %}">
               <p>A {{ console.name }} by {{console.company}}</p>
             </a>
           </div>
         {% endfor %}
       {% else %}
-        <p class="no-toys">{{game.name}} isn't on any console!</p>
+        <p class="no-consoles">{{game.name}} isn't on any console!</p>
       {% endif %}
     </div>
     <h3>Other Consoles</h3>
     <div class="subsection-content">
-      {% comment %} We'll display available toys here {% endcomment %}
+      {% comment %} We'll display available consoles here {% endcomment %}
       {% if consoles.count %}
         {% for console in consoles.all %}
-          <div class="toy-container">
+          <div class="console-container">
             <a href="{% url 'console-detail' console.id %}">
               <p>A {{ console.company }} {{ console.name }}</p>
             </a>
@@ -103,7 +103,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <p class="all-toys">
+        <p class="all-consoles">
           {{game.name}} is already available on all the consoles
         </p>
       {% endif %}

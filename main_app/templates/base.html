@@ -25,6 +25,13 @@
         >
       </a>
     </div>
+    <div>
+      {% if not user.is_authenticated%}
+      <h1 class="user-greeting">Hello Guest</h1>
+    {% else %}
+      <h1 class="user-greeting">Hello {{request.user.username}}</h1>
+    {% endif%}
+    </div>
     <nav>
       <ul>
         {% if user.is_authenticated %}
